@@ -1,6 +1,6 @@
 resource "aws_ebs_volume" "example" {
   availability_zone = "us-east-1a"
-  size = 100
+  size              = 100
 }
 
 resource "aws_volume_attachment" "ebs_att" {
