@@ -3,4 +3,11 @@ resource "aws_instance" "web" {
   instance_type = "t3.micro"
   key_name = aws_key_pair.deployer2.key_name
   count = 2
+  associate_public_ip_address = true
+  availability_zone = "us-east-1a"
+  user_data =  file("userdata.sh")
+
+  tags = {
+      "Name" = "Zalkar"
+  }
 }
