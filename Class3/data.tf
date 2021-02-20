@@ -17,3 +17,23 @@ data "aws_ami" "ubuntu" {
 output "UBUNTU_ID" {
   value = data.aws_ami.ubuntu.id
 }
+
+# This line pulls CentOS AMI
+data "aws_ami" "centos" {
+  most_recent = true
+  owners = ["679593333241"] # CentOS Owner
+ 
+  filter {
+    name   = "name"
+    values = ["CentOS Linux 7 x86_64 HVM EBS*"]
+  }
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+}
+
+# Shows AMI ID
+output "CENTOS_ID" {
+  value = data.aws_ami.centos.id
+}
